@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217160648) do
+ActiveRecord::Schema.define(:version => 20110217202349) do
+
+  create_table "clients", :force => true do |t|
+    t.text     "name"
+    t.text     "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "courses", :force => true do |t|
     t.text     "name"
@@ -26,6 +33,23 @@ ActiveRecord::Schema.define(:version => 20110217160648) do
     t.datetime "updated_at"
   end
 
+  create_table "orders", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products_suppliers", :id => false, :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "supplier_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "students", :force => true do |t|
     t.text     "name"
     t.text     "student_id"
@@ -33,6 +57,13 @@ ActiveRecord::Schema.define(:version => 20110217160648) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "carnet"
+  end
+
+  create_table "suppliers", :force => true do |t|
+    t.text     "name"
+    t.date     "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
